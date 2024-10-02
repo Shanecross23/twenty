@@ -23,7 +23,7 @@ describe('utils.handleQueryParams', () => {
     const result = handleQueryParams(inputData);
     const expectedResult =
       'name: "Company Name", ' +
-      'address: { addressCity: "Paris" }, ' +
+      'address: {addressCity: "Paris"}, ' +
       'domainName: "Company Domain Name", ' +
       'linkedinUrl: {url: "/linkedin_url", label: "Test linkedinUrl"}, ' +
       'xUrl: {url: "/x_url", label: "Test xUrl"}, ' +
