@@ -4,6 +4,7 @@ import { redisStore } from 'cache-manager-redis-yet';
 
 import { CacheStorageType } from 'src/engine/core-modules/cache-storage/types/cache-storage-type.enum';
 import { EnvironmentService } from 'src/engine/core-modules/environment/environment.service';
+import { getIpFamily } from 'packages/twenty-server/src/engine/core-modules/message-queue/utils/ipUtil'
 
 export const cacheStorageModuleFactory = (
   environmentService: EnvironmentService,
@@ -40,6 +41,7 @@ export const cacheStorageModuleFactory = (
           port,
           username,
           password,
+          family: getIpFamily(host),
         },
       };
     }

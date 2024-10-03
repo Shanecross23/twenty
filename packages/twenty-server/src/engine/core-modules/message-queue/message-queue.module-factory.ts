@@ -3,6 +3,7 @@ import {
   MessageQueueDriverType,
   MessageQueueModuleOptions,
 } from 'src/engine/core-modules/message-queue/interfaces';
+import { getIpFamily } from 'packages/twenty-server/src/engine/core-modules/message-queue/utils/ipUtil'
 
 /**
  * MessageQueue Module factory
@@ -45,6 +46,7 @@ export const messageQueueModuleFactory = async (
             port,
             username,
             password,
+            family: getIpFamily(host),
           },
         },
       };
