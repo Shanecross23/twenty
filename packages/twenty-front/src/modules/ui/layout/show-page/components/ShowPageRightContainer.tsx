@@ -14,6 +14,8 @@ import { ShowPageActivityContainer } from '@/ui/layout/show-page/components/Show
 import { TabList } from '@/ui/layout/tab/components/TabList';
 import { useTabList } from '@/ui/layout/tab/hooks/useTabList';
 import { useIsMobile } from '@/ui/utilities/responsive/hooks/useIsMobile';
+import { WorkflowVersionVisualizer } from '@/workflow/components/WorkflowVersionVisualizer';
+import { WorkflowVersionVisualizerEffect } from '@/workflow/components/WorkflowVersionVisualizerEffect';
 import { WorkflowVisualizer } from '@/workflow/components/WorkflowVisualizer';
 import { WorkflowVisualizerEffect } from '@/workflow/components/WorkflowVisualizerEffect';
 import { useIsFeatureEnabled } from '@/workspace/hooks/useIsFeatureEnabled';
@@ -267,7 +269,17 @@ export const ShowPageRightContainer = ({
           </>
         );
       case 'flow':
-        return <WorkflowVisualizer targetableObject={targetableObject} />;
+        return (
+          <>
+            <WorkflowVersionVisualizerEffect
+              workflowVersionId={targetableObject.id}
+            />
+
+            <WorkflowVersionVisualizer
+              workflowVersionId={targetableObject.id}
+            />
+          </>
+        );
       default:
         return <></>;
     }
